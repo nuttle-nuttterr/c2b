@@ -5,7 +5,7 @@ import datetime
 import os
 
 # ==========================================
-# 1. USER'S CUSTOM HARDCODED CHANNELS
+# 1. USER'S CUSTOM HARDCODED CHANNELS (Tamil)
 # ==========================================
 USER_CUSTOM_CHANNELS = """
 #EXTINF:-1 group-title="Tamil Local Channels",Sana TV
@@ -175,7 +175,7 @@ https://cdn-4.pishow.tv/live/1531/master.m3u8
 """
 
 # ==========================================
-# 2. ALL SOURCES
+# 2. ALL SOURCES (English source REMOVED)
 # ==========================================
 SOURCES = [
     "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
@@ -191,18 +191,19 @@ SOURCES = [
     "https://raw.githubusercontent.com/amazeyourself/m3u/main/ashokadigital.m3u",
     "https://raw.githubusercontent.com/amazeyourself/m3u/main/neotv.m3u",
     "https://raw.githubusercontent.com/amazeyourself/tamil-local-iptv/refs/heads/main/channels.m3u",
-    "https://iptv-org.github.io/iptv/languages/tam.m3u",
-    "https://iptv-org.github.io/iptv/languages/eng.m3u"
+    "https://iptv-org.github.io/iptv/languages/tam.m3u" 
+    # REMOVED: "https://iptv-org.github.io/iptv/languages/eng.m3u"
 ]
 
 # ==========================================
-# 3. RUTHLESS BLOCK LIST
+# 3. RUTHLESS BLOCK LIST (Expanded)
 # ==========================================
 BLOCKED_KEYWORDS = [
     "hindi", "telugu", "malayalam", "kannada", "marathi", "bengali", "bangla", 
     "gujarati", "punjabi", "odia", "assamese", "urdu", "bhojpuri",
     "spanish", "french", "german", "italian", "portuguese", "russian",
-    "chinese", "japanese", "korean", "arabic", "indonesian", "nepali"
+    "chinese", "japanese", "korean", "arabic", "indonesian", "nepali",
+    "english", " eng ", " eng,", "bbc", "cnn", "fox", "sky sports", "espn", "cnbc"
 ]
 
 # ==========================================
@@ -213,10 +214,17 @@ def clean_name(name):
     name = re.sub(r'\s*\(.*?\)\s*', '', name)
     return ' '.join(name.split()).strip()
 
-def is_blocked(name):
+def is_blocked(name, category=""):
     if not name: return True
-    n = name.lower()
-    return any(lang in n for lang in BLOCKED_KEYWORDS)
+    # Combine name and category for checking
+    text_to_check = (name + " " + category).lower()
+    
+    # THE TAMIL PASS: If it explicitly says "tamil", allow it (even if it has other words)
+    if "tamil" in text_to_check:
+        return False
+        
+    # Otherwise, check against the ruthless blocklist
+    return any(lang in text_to_check for lang in BLOCKED_KEYWORDS)
 
 def parse_m3u(content):
     channels = []
@@ -252,9 +260,8 @@ def parse_json(content):
     return channels
 
 def main():
-    print("🚀 Starting Ultimate Deduplication & Sorting Builder...")
+    print("🚀 Starting Tamil-Only Deduplication & Sorting Builder...")
     
-    # Dict to hold unique channels: { url: {"name": name, "logo": logo, "cat": cat} }
     unique_channels = {}
     seen_urls = set()
 
@@ -265,7 +272,7 @@ def main():
         url = url.strip()
         if not url.startswith("http") or url in seen_urls: 
             continue
-        if is_blocked(name): 
+        if is_blocked(name, cat): 
             continue
             
         seen_urls.add(url)
@@ -284,7 +291,7 @@ def main():
                 url = url.strip()
                 if not url.startswith("http") or url in seen_urls: 
                     continue
-                if is_blocked(name): 
+                if is_blocked(name, cat): 
                     continue
                 
                 seen_urls.add(url)
@@ -292,22 +299,18 @@ def main():
                 
                 # Fallback category logic
                 if cat == "Uncategorized" or not cat:
-                    if "local" in proper_name.lower():
-                        cat = "Tamil Local Channels"
-                    else:
-                        cat = "Tamil IPTV Channels"
+                    cat = "Tamil IPTV Channels"
 
                 unique_channels[url] = {"name": proper_name, "logo": logo, "cat": cat}
                     
         except Exception as e:
             print(f"   ⚠️ Failed to fetch {src_url}: {e}")
 
-    print(f"\n✅ Extracted {len(unique_channels)} unique, working channels.")
+    print(f"\n✅ Extracted {len(unique_channels)} unique Tamil channels.")
     
     # --- 3. SORTING & FILE GENERATION ---
     print("📝 Writing master_playlist.m3u in perfect alphabetical order...")
     
-    # Convert dict to list of tuples for sorting: (cat, name, logo, url)
     channel_list = []
     for url, data in unique_channels.items():
         channel_list.append((data["cat"], data["name"], data["logo"], url))
@@ -317,7 +320,7 @@ def main():
 
     with open("master_playlist.m3u", "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        f.write("#PLAYLIST: Checked and Sorted by tv-playlist-automation\n")
+        f.write("#PLAYLIST: Checked and Sorted (Tamil Only)\n")
         
         current_cat = None
         for cat, name, logo, url in channel_list:
@@ -327,13 +330,12 @@ def main():
             
             f.write(f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{logo}" group-title="{cat}",{name}\n{url}\n')
 
-    # --- 4. README / SUMMARY UPDATE ---
+    # --- 4. SUMMARY UPDATE ---
     timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
     with open("update_summary.txt", "w", encoding="utf-8") as f:
         f.write(f"Last Updated: {timestamp}\n")
-        f.write(f"Total LIVE Channels: {len(channel_list)}\n")
+        f.write(f"Total LIVE Tamil Channels: {len(channel_list)}\n")
         
-        # Count by category
         cat_counts = {}
         for cat, _, _, _ in channel_list:
             cat_counts[cat] = cat_counts.get(cat, 0) + 1
@@ -342,7 +344,7 @@ def main():
         for cat, count in sorted(cat_counts.items()):
             f.write(f"- {cat}: {count}\n")
 
-    print(f"\n🎉 SUCCESS! Total Unique Channels Saved: {len(channel_list)}")
+    print(f"\n🎉 SUCCESS! Total Unique Tamil Channels Saved: {len(channel_list)}")
 
 if __name__ == "__main__":
     main()
