@@ -1,6 +1,4 @@
 Playlist Update Summary
 ======================
-Date: 2026-10-24 19:28:40 UTC
-Total Clean Channels: 1487
-Dead Links Removed: 2565
-Duplicates Removed/Renamed: 1226
+Date: 2026-10-25 03:44:11 UTC
+Total Clean Channels: 2433
