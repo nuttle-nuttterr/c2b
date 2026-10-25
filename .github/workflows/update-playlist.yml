@@ -1,41 +1,67 @@
-name: Update M3U Playlist
+name: Update Playlist
 
 on:
   schedule:
-    # Runs every 6 hours: 00:00, 06:00, 12:00, 18:00 UTC
+    # Every 6 hours at minute 0 (UTC)
     - cron: '0 */6 * * *'
-  workflow_dispatch: # Allows you to click "Run" manually
+  workflow_dispatch:   # allow manual "Run workflow" button
+  push:
+    branches: [main]
+    paths:
+      - 'fetch_and_combine.py'
+      - '.github/workflows/update-playlist.yml'
 
+# Only one run at a time; do NOT cancel mid-run (would corrupt the playlist)
+concurrency:
+  group: update-playlist
+  cancel-in-progress: false
+
+# The default GITHUB_TOKEN needs write access to push the updated playlist
 permissions:
-  contents: write # CRITICAL: Allows the bot to save the new file
+  contents: write
 
 jobs:
-  update-playlist:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    timeout-minutes: 60   # hard cap — well under GitHub's 6-hour job limit
 
-      - name: Set up Python
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
+          cache: 'pip'
 
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir requests urllib3
 
-      - name: Run playlist builder
+      - name: Run fetch_and_combine.py
         run: python fetch_and_combine.py
 
-      - name: Commit and push if changed
+      - name: Show generated files
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add master_playlist.m3u update_summary.txt
-          if git diff --staged --quiet; then
-            echo "No changes to commit."
+          echo "--- master_playlist.m3u (first 40 lines) ---"
+          head -n 40 master_playlist.m3u || true
+          echo "--- stats.json ---"
+          cat stats.json || true
+
+      - name: Commit and push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add master_playlist.m3u stats.json
+          if git diff --cached --quiet; then
+            echo "No changes since last run — nothing to commit."
           else
-            git commit -m "chore: auto-update playlist $(date +'%Y-%m-%d %H:%M:%S UTC')"
+            TIMESTAMP="$(date -u '+%Y-%m-%d %H:%M UTC')"
+            git commit -m "chore: auto-update playlist ${TIMESTAMP}"
             git push
-            echo "✅ Playlist updated and pushed successfully!"
+            echo "Pushed update at ${TIMESTAMP}"
           fi
