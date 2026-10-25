@@ -1,0 +1,81 @@
+{
+  "run_at_utc": "2026-10-25T04:38:13Z",
+  "sources": {
+    "local:tamilvmtv": {
+      "url": "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
+      "raw_channels": 747
+    },
+    "local:tamil-local": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/tamil-local-iptv/main/channels.m3u",
+      "raw_channels": 733
+    },
+    "local:tamil-local-nortmp": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/tamil-local-iptv/main/channels-nortmp.m3u",
+      "raw_channels": 715
+    },
+    "main:ashokadigital": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/ashokadigital.m3u",
+      "raw_channels": 228,
+      "tamil_channels": 147
+    },
+    "main:dishd2h": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/dishd2h.m3u",
+      "raw_channels": 44,
+      "tamil_channels": 0
+    },
+    "main:ektv": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/ektv.m3u",
+      "raw_channels": 275,
+      "tamil_channels": 3
+    },
+    "main:fastvjp": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/fastvjp.m3u",
+      "raw_channels": 19,
+      "tamil_channels": 0
+    },
+    "main:jayamott": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/jayamott.m3u",
+      "raw_channels": 58,
+      "tamil_channels": 35
+    },
+    "main:joshuaott": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/joshuaott.m3u",
+      "raw_channels": 79,
+      "tamil_channels": 8
+    },
+    "main:jtv": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/jtv.m3u",
+      "raw_channels": 1052,
+      "tamil_channels": 59
+    },
+    "main:maduraiiptv": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/maduraiiptv.m3u",
+      "raw_channels": 357,
+      "tamil_channels": 25
+    },
+    "main:nellaiiptv": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/nellaiiptv.m3u",
+      "raw_channels": 462,
+      "tamil_channels": 28
+    },
+    "main:pishow": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/pishow.m3u",
+      "raw_channels": 257,
+      "tamil_channels": 12
+    },
+    "main:yupptvfast": {
+      "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/yupptvfast.m3u",
+      "raw_channels": 252,
+      "tamil_channels": 8
+    }
+  },
+  "totals": {
+    "local_raw": 2195,
+    "main_raw_tamil": 325,
+    "local_after_dedup": 819,
+    "main_after_dedup": 291,
+    "main_final": 154,
+    "main_dead": 137,
+    "elapsed_seconds": 56.0
+  }
+}
