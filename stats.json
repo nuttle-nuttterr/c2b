@@ -1,5 +1,5 @@
 {
-  "run_at_utc": "2026-10-25T04:39:31Z",
+  "run_at_utc": "2026-10-25T11:08:38Z",
   "sources": {
     "local:tamilvmtv": {
       "url": "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
@@ -7,7 +7,7 @@
     },
     "local:tamil-local": {
       "url": "https://raw.githubusercontent.com/amazeyourself/tamil-local-iptv/main/channels.m3u",
-      "raw_channels": 733
+      "raw_channels": 735
     },
     "local:tamil-local-nortmp": {
       "url": "https://raw.githubusercontent.com/amazeyourself/tamil-local-iptv/main/channels-nortmp.m3u",
@@ -70,12 +70,12 @@
     }
   },
   "totals": {
-    "local_raw": 2195,
+    "local_raw": 2197,
     "main_raw_tamil": 325,
-    "local_after_dedup": 819,
+    "local_after_dedup": 1522,
     "main_after_dedup": 291,
-    "main_final": 155,
-    "main_dead": 136,
-    "elapsed_seconds": 56.4
+    "main_final": 219,
+    "main_dead": 72,
+    "elapsed_seconds": 55.4
   }
 }
