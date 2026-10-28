@@ -1,5 +1,5 @@
 {
-  "run_at_utc": "2026-10-28T12:35:04Z",
+  "run_at_utc": "2026-10-28T22:26:56Z",
   "sources": {
     "local:tamilvmtv": {
       "url": "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
@@ -50,8 +50,8 @@
     },
     "main:maduraiiptv": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/maduraiiptv.m3u",
-      "raw_channels": 358,
-      "tamil_channels": 25
+      "raw_channels": 374,
+      "tamil_channels": 27
     },
     "main:nellaiiptv": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/nellaiiptv.m3u",
@@ -61,7 +61,7 @@
     "main:pishow": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/pishow.m3u",
       "raw_channels": 257,
-      "tamil_channels": 12
+      "tamil_channels": 13
     },
     "main:yupptvfast": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/yupptvfast.m3u",
@@ -71,11 +71,11 @@
   },
   "totals": {
     "local_raw": 2200,
-    "main_raw_tamil": 326,
+    "main_raw_tamil": 329,
     "local_after_dedup": 1525,
-    "main_after_dedup": 292,
-    "main_final": 158,
-    "main_dead": 134,
-    "elapsed_seconds": 54.3
+    "main_after_dedup": 294,
+    "main_final": 155,
+    "main_dead": 139,
+    "elapsed_seconds": 56.3
   }
 }
