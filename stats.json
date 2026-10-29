@@ -1,5 +1,5 @@
 {
-  "run_at_utc": "2026-10-29T12:45:30Z",
+  "run_at_utc": "2026-10-29T22:39:54Z",
   "sources": {
     "local:tamilvmtv": {
       "url": "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
@@ -15,12 +15,12 @@
     },
     "main:ashokadigital": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/ashokadigital.m3u",
-      "raw_channels": 232,
-      "tamil_channels": 149
+      "raw_channels": 225,
+      "tamil_channels": 142
     },
     "main:dishd2h": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/dishd2h.m3u",
-      "raw_channels": 44,
+      "raw_channels": 47,
       "tamil_channels": 0
     },
     "main:ektv": {
@@ -50,7 +50,7 @@
     },
     "main:maduraiiptv": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/maduraiiptv.m3u",
-      "raw_channels": 375,
+      "raw_channels": 377,
       "tamil_channels": 27
     },
     "main:nellaiiptv": {
@@ -71,11 +71,11 @@
   },
   "totals": {
     "local_raw": 2200,
-    "main_raw_tamil": 329,
+    "main_raw_tamil": 322,
     "local_after_dedup": 1525,
-    "main_after_dedup": 293,
-    "main_final": 166,
-    "main_dead": 127,
-    "elapsed_seconds": 56.4
+    "main_after_dedup": 288,
+    "main_final": 153,
+    "main_dead": 135,
+    "elapsed_seconds": 54.6
   }
 }
