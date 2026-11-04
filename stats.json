@@ -1,5 +1,5 @@
 {
-  "run_at_utc": "2026-11-04T14:14:01Z",
+  "run_at_utc": "2026-11-04T23:29:44Z",
   "sources": {
     "local:tamilvmtv": {
       "url": "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
@@ -65,7 +65,7 @@
     },
     "main:yupptvfast": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/yupptvfast.m3u",
-      "raw_channels": 252,
+      "raw_channels": 253,
       "tamil_channels": 8
     }
   },
@@ -74,8 +74,8 @@
     "main_raw_tamil": 322,
     "local_after_dedup": 1551,
     "main_after_dedup": 287,
-    "main_final": 154,
-    "main_dead": 133,
-    "elapsed_seconds": 55.0
+    "main_final": 142,
+    "main_dead": 145,
+    "elapsed_seconds": 81.6
   }
 }
