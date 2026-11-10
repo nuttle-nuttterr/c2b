@@ -1,5 +1,5 @@
 {
-  "run_at_utc": "2026-11-10T01:24:25Z",
+  "run_at_utc": "2026-11-10T14:42:10Z",
   "sources": {
     "local:tamilvmtv": {
       "url": "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
@@ -15,8 +15,8 @@
     },
     "main:ashokadigital": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/ashokadigital.m3u",
-      "raw_channels": 229,
-      "tamil_channels": 145
+      "raw_channels": 230,
+      "tamil_channels": 146
     },
     "main:dishd2h": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/dishd2h.m3u",
@@ -71,11 +71,11 @@
   },
   "totals": {
     "local_raw": 2204,
-    "main_raw_tamil": 325,
+    "main_raw_tamil": 326,
     "local_after_dedup": 1551,
-    "main_after_dedup": 289,
-    "main_final": 212,
-    "main_dead": 77,
-    "elapsed_seconds": 30.9
+    "main_after_dedup": 290,
+    "main_final": 217,
+    "main_dead": 73,
+    "elapsed_seconds": 32.7
   }
 }
