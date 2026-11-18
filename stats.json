@@ -1,5 +1,5 @@
 {
-  "run_at_utc": "2026-11-18T00:51:45Z",
+  "run_at_utc": "2026-11-18T15:28:50Z",
   "sources": {
     "local:tamilvmtv": {
       "url": "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
@@ -50,7 +50,7 @@
     },
     "main:maduraiiptv": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/maduraiiptv.m3u",
-      "raw_channels": 400,
+      "raw_channels": 401,
       "tamil_channels": 27
     },
     "main:nellaiiptv": {
@@ -74,8 +74,8 @@
     "main_raw_tamil": 335,
     "local_after_dedup": 1551,
     "main_after_dedup": 298,
-    "main_final": 213,
-    "main_dead": 85,
-    "elapsed_seconds": 53.0
+    "main_final": 220,
+    "main_dead": 78,
+    "elapsed_seconds": 34.3
   }
 }
