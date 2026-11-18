@@ -1,5 +1,5 @@
 {
-  "run_at_utc": "2026-11-17T15:49:21Z",
+  "run_at_utc": "2026-11-18T00:51:45Z",
   "sources": {
     "local:tamilvmtv": {
       "url": "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
@@ -74,8 +74,8 @@
     "main_raw_tamil": 335,
     "local_after_dedup": 1551,
     "main_after_dedup": 298,
-    "main_final": 167,
-    "main_dead": 131,
-    "elapsed_seconds": 53.8
+    "main_final": 213,
+    "main_dead": 85,
+    "elapsed_seconds": 53.0
   }
 }
