@@ -1,5 +1,5 @@
 {
-  "run_at_utc": "2026-11-20T23:54:08Z",
+  "run_at_utc": "2026-11-21T06:46:39Z",
   "sources": {
     "local:tamilvmtv": {
       "url": "https://raw.githubusercontent.com/Vmfm/tamilvmtv/main/live/channels.m3u",
@@ -35,8 +35,8 @@
     },
     "main:jayamott": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/jayamott.m3u",
-      "raw_channels": 58,
-      "tamil_channels": 35
+      "raw_channels": 56,
+      "tamil_channels": 34
     },
     "main:joshuaott": {
       "url": "https://raw.githubusercontent.com/amazeyourself/m3u/main/joshuaott.m3u",
@@ -71,11 +71,11 @@
   },
   "totals": {
     "local_raw": 2204,
-    "main_raw_tamil": 330,
+    "main_raw_tamil": 329,
     "local_after_dedup": 1551,
-    "main_after_dedup": 293,
-    "main_final": 149,
-    "main_dead": 144,
-    "elapsed_seconds": 53.6
+    "main_after_dedup": 292,
+    "main_final": 157,
+    "main_dead": 135,
+    "elapsed_seconds": 53.7
   }
 }
